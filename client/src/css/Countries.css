@@ -1,0 +1,32 @@
+.content_countries{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 50px;
+    justify-content: center;
+}
+
+.content_card_country{
+    border: 1px solid #ffffff9e;
+    background-color: rgba(15, 14, 14, 0.59);
+    border-radius: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+.content_bandera{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    
+}
+.img_bandera{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 100%;
+}
+.content_title{
+    text-align: center;
+}
