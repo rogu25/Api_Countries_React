@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const ALL_COUNTRIES = "ALL_COUNTRIES";
+export const FIND_NAME_COUNTRIES = "FIND_NAME_COUNTRIES";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
-export const GET_ID_COUNTRY = "GET_ID_COUNTRY";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 
 //------------------ request pokemons ----------------
@@ -22,6 +22,21 @@ export const get_all_countries = () => async (dispatch) => {
     }
 }
 
+export const get_name_countries = (name) => async (dispatch) => {
+    try {
+        const getIdCountries = await axios.get(`http://localhost:3001/countries__/name?name=${name}`);
+        return dispatch({
+            type: FIND_NAME_COUNTRIES,
+            payload: getIdCountries.data
+        });
+    } catch (error) {
+        return dispatch({
+            type: FIND_NAME_COUNTRIES,
+            payload: {mensaje: error.message}
+        });
+    }
+}
+
 // export const get_name_pokemon = (name) => async (dispatch) => {
 //     try {
 //         const getNamePokemon = await axios.get(`https://api-pokemon-flame.vercel.app/pokemons/name?nombre=${name}`);
@@ -32,21 +47,6 @@ export const get_all_countries = () => async (dispatch) => {
 //     } catch (error) {
 //         return dispatch({
 //             type: GET_NAME_POKEMON,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
-
-// export const get_id_pokemon = (id) => async (dispatch) => {
-//     try {
-//         const getIdPokemon = await axios.get(`https://api-pokemon-flame.vercel.app/pokemons/${id}`);
-//         return dispatch({
-//             type: GET_ID_POKEMON,
-//             payload: getIdPokemon.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: GET_ID_POKEMON,
 //             payload: {mensaje: error.message}
 //         });
 //     }

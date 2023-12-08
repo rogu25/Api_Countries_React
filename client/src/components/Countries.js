@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { get_all_countries } from "../redux/action";
 
 import CardCountry from './CardCountry';
+import Loading from "../components/Loading.js";
 
 import "../css/Countries.css";
 import Pagination from './Pagination';
@@ -12,6 +13,7 @@ function Countries() {
 
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
+  const mensaje = useSelector((state) => state.mensaje);
 
   const [backcountries, setBackCountries] = useState(0);
   const [nextcountries, setNextCountries] = useState(9);
@@ -148,11 +150,12 @@ function Countries() {
 
       <div className='content_countries'>
         {
-          countries.length && countries.map((c) => {
+          countries.length ? countries.map((c) => {
             return (
               <CardCountry key={c.id} id={c.id} imagen={c.imagen} nombre={c.name} continente={c.continente} poblacion={c.poblacion} />
             )
-          }).slice(backcountries, nextcountries)
+          }).slice(backcountries, nextcountries) :
+          <Loading mensaje={mensaje}/>
         }
       </div>
 

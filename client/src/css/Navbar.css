@@ -1,6 +1,61 @@
 .container_navbar{
-    border: 1px solid saddlebrown;
+    border-bottom: 1px solid rgba(235, 226, 99, 0.539);
     height: 100px;
     width: 100%;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.content_logo{
+    border: 2px solid rgba(235, 226, 99, 0.539);
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+.img_logo{
+    object-fit: cover;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.content_input{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.input_buscar{
+    width: 220px;
+    border: none;
+    text-shadow: none;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    background-color: rgba(230, 246, 246, 0.264);
+    color: #ffffff;
+}
+.btn_buscar{
+    border: none;
+    border-radius: 30px;
+    width: 60px;
+    background-color: rgba(235, 226, 99, 0.539);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.content_btn_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_crear_actividad{
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    background-color: rgba(235, 226, 99, 0.539);
+    color: #ffffff;
+    cursor: pointer;
 }
