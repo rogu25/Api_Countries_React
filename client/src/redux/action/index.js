@@ -3,7 +3,7 @@ import axios from "axios";
 export const ALL_COUNTRIES = "ALL_COUNTRIES";
 export const FIND_NAME_COUNTRIES = "FIND_NAME_COUNTRIES";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
-export const GET_ACTIVITIES = "GET_ACTIVITIES";
+export const FIND_ID_COUNTRY = "FIND_ID_COUNTRY";
 
 //------------------ request pokemons ----------------
 
@@ -24,14 +24,29 @@ export const get_all_countries = () => async (dispatch) => {
 
 export const get_name_countries = (name) => async (dispatch) => {
     try {
-        const getIdCountries = await axios.get(`http://localhost:3001/countries__/name?name=${name}`);
+        const getINameCountries = await axios.get(`http://localhost:3001/countries__/name?name=${name}`);
         return dispatch({
             type: FIND_NAME_COUNTRIES,
-            payload: getIdCountries.data
+            payload: getINameCountries.data
         });
     } catch (error) {
         return dispatch({
             type: FIND_NAME_COUNTRIES,
+            payload: {mensaje: error.message}
+        });
+    }
+}
+
+export const get_id_countries = (id) => async (dispatch) => {
+    try {
+        const getIdCountries = await axios.get(`http://localhost:3001/countries__/${id}`);
+        return dispatch({
+            type: FIND_ID_COUNTRY,
+            payload: getIdCountries.data
+        });
+    } catch (error) {
+        return dispatch({
+            type: FIND_ID_COUNTRY,
             payload: {mensaje: error.message}
         });
     }

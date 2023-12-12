@@ -59,3 +59,21 @@
     color: #ffffff;
     cursor: pointer;
 }
+
+/* Erroresss */
+.content_input_buscar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.error_a{
+    display: none;
+}
+.error{
+    color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    color: #ff0000;
+}

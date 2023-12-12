@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import "../css/Countries.css";
 
-function CardCountry({ id, imagen, nombre, continente, poblacion }) {
+function CardCountry({ id, imagen, nombre, continente, poblacion, onclickSelectCardCountrie }) {
   return (
     <div className='container_card_country'>
-      <NavLink to={`/detalle/${id}`} className={"nav_link"}>
+      <NavLink to={`/detalle/${id}`} className={"nav_link"} onClick={() => onclickSelectCardCountrie(id)}>
         <div className='content_bandera'>
           <img src={imagen} alt='Imagen not found' className='img_bandera' />
         </div>

@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { get_name_countries } from "../redux/action";
 
 import "../css/Navbar.css";
 
 import logo_rc from "../img/logo.jpg";
+import validation from "./Validador.js";
 
 function Navbar() {
 
-  const find_countries = useSelector((state) => state.find_countries);
   const dispatch = useDispatch();
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
+  const [error, setError] = useState({name:''});
+  const [activo, setActivo] = useState(true);
 
   const onclickFindCountries = () => {
-    dispatch(get_name_countries(name))
+    if(!error.name){
+      dispatch(get_name_countries(name));
+      setName('');
+    } 
   }
 
   const onchangeInput = (e) => {
-    setName(e.target.value)
+    setActivo(false)
+    setName(e.target.value);
+    setError(validation({ ...error, name: e.target.value }));
   }
 
   return (
@@ -30,8 +37,11 @@ function Navbar() {
         </div>
       </NavLink>
       <div className='content_input'>
-        <input name='name' value={name} type='text' className='input_buscar' placeholder='nombre país' onChange={onchangeInput} />
-        <button className='btn_buscar' onClick={onclickFindCountries}>Buscar</button>
+        <div className='content_input_buscar'>
+          <input name='name' value={name} type='text' className='input_buscar' placeholder='nombre país' onChange={onchangeInput} />
+          <span className={error.name?'error':"error_a"}>{error.name}</span>
+        </div>
+        <button className='btn_buscar' onClick={onclickFindCountries} disabled={activo}>Buscar</button>
       </div>
       <div className='content_btn_form'>
         <button className='btn_crear_actividad'>Crear Actividad Turística</button>

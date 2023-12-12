@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { get_all_countries } from "../redux/action";
+import { get_all_countries, get_id_countries } from "../redux/action";
 
 import CardCountry from './CardCountry';
 import Loading from "../components/Loading.js";
@@ -138,6 +138,10 @@ function Countries() {
     setId(id);
   }, [id]);
 
+  const onclickSelectCardCountrie = (idCountrie) => {
+    dispatch(get_id_countries(idCountrie));
+  };
+
   useEffect(() => {
     !countries.length && dispatch(get_all_countries());
   }, [countries, dispatch]);
@@ -152,7 +156,7 @@ function Countries() {
         {
           countries.length ? countries.map((c) => {
             return (
-              <CardCountry key={c.id} id={c.id} imagen={c.imagen} nombre={c.name} continente={c.continente} poblacion={c.poblacion} />
+              <CardCountry key={c.id} id={c.id} imagen={c.imagen} nombre={c.name} continente={c.continente} poblacion={c.poblacion} onclickSelectCardCountrie={onclickSelectCardCountrie}/>
             )
           }).slice(backcountries, nextcountries) :
           <Loading mensaje={mensaje}/>
