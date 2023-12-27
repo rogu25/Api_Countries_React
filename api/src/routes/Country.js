@@ -96,22 +96,5 @@ router.get("/:idPais", async (req, res, next) => {
 
 });
 
-router.post("/", async (req, res, next) => {
-
-  try {
-    const { name, dificultad, duracion, temporada, countries } = req.body;
-
-      const addActivity = await Activity.create({
-        name, dificultad, duracion, temporada
-      });
-      await addActivity.addCountry(countries)  
-      res.json({mensaje: "Actividad creada correctamente...!!!"})
-
-  } catch (error) {
-    next(error)
-  }
-
-});
-
 
 module.exports = router;  
