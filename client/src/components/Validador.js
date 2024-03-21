@@ -3,6 +3,7 @@ const validation = (input) => {
     if (tiene_numeros(input.name) === 1) {
       errors.name = 'No se permite numeros';
     } else if(input.name === ''){
+      console.log("almenos entre aqui")
       errors.name = 'Campo Vacío';
     }
     // else if (input.name.length < 4) {

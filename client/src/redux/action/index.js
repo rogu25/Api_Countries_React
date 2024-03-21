@@ -4,6 +4,8 @@ export const ALL_COUNTRIES = "ALL_COUNTRIES";
 export const FIND_NAME_COUNTRIES = "FIND_NAME_COUNTRIES";
 export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
 export const FIND_ID_COUNTRY = "FIND_ID_COUNTRY";
+export const GET_ALL_ACTIVITY = "GET_ALL_ACTIVITY";
+export const CREATE_ACTIVITIES = "CREATE_ACTIVITIES"; 
 
 //------------------ request pokemons ----------------
 
@@ -52,98 +54,35 @@ export const get_id_countries = (id) => async (dispatch) => {
     }
 }
 
-// export const get_name_pokemon = (name) => async (dispatch) => {
-//     try {
-//         const getNamePokemon = await axios.get(`https://api-pokemon-flame.vercel.app/pokemons/name?nombre=${name}`);
-//         return dispatch({
-//             type: GET_NAME_POKEMON,
-//             payload: getNamePokemon.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: GET_NAME_POKEMON,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
+// --------- peticiones de las actividades------
 
-// export const update_pokemon = (id, obj) => async (dispatch) => {
-//     try {
-//         const updatePokemon = await axios.put(`https://api-pokemon-flame.vercel.app/pokemons/${id}`, obj);
-//         return dispatch({
-//             type: UPDATE_POKEMON,
-//             payload: updatePokemon.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: UPDATE_POKEMON,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
+export const get_all_activity = () => async (dispatch) => {
+    try {
+        const getAllActivities = await axios.get("http://localhost:3001/activity__");
+        return dispatch({
+            type: GET_ALL_ACTIVITY,
+            payload: getAllActivities.data
+        });
+    } catch (error) {
+        return dispatch({
+            type: GET_ALL_ACTIVITY,
+            payload: {mensaje: error}
+        });
+    }
+}
 
-// export const create_pokemon = (obj) => async (dispatch) => {
-//     try {
-//         const createPokemon = await axios.post(`https://api-pokemon-flame.vercel.app/pokemons`, obj);
-//         return dispatch({
-//             type: CREATE_POKEMON,
-//             payload: createPokemon.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: CREATE_POKEMON,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
-
-// export const delete_pokemon = (id) => async (dispatch) => {
-//     try {
-//         const deletePokemon = await axios.delete(`https://api-pokemon-flame.vercel.app/pokemons/${id}`);
-//         return dispatch({
-//             type: DELETE_POKEMON,
-//             payload: deletePokemon.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: DELETE_POKEMON,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
-
-
-// //------------------- request tipos ---------------------
-
-// export const get_all_types = () => async (dispatch) => {
-//     try {
-//         const getAllTypes = await axios.get("https://api-pokemon-flame.vercel.app/types");
-//         return dispatch({
-//             type: ALL_TYPES,
-//             payload: getAllTypes.data
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: ALL_TYPES,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
-
-// //------------------- request filtros ------------------------
-
-// export const filtrosPokemons = (obj) => async (dispatch) => {
-//     try {
-//         return dispatch({
-//             type: FILTROS_POKEMONS,
-//             payload: obj
-//         });
-//     } catch (error) {
-//         return dispatch({
-//             type: FILTROS_POKEMONS,
-//             payload: {mensaje: error.message}
-//         });
-//     }
-// }
-
+export const create_activities = (obj) => async (dispatch) => {
+    try {
+        const createActivities = await axios.post(`http://localhost:3001/activity__`, obj);
+        return dispatch({
+            type: CREATE_ACTIVITIES,
+            payload: createActivities.data
+        });
+    } catch (error) {
+        return dispatch({
+            type: CREATE_ACTIVITIES,
+            payload: {mensaje: error.message}
+        });
+    }
+}
 

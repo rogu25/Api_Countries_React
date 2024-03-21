@@ -21,9 +21,9 @@
 }
 
 .content_input{
-    width: 40%;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .input_buscar{
     width: 220px;
@@ -36,6 +36,7 @@
     border-radius: 5px;
     background-color: rgba(230, 246, 246, 0.264);
     color: #ffffff;
+    margin-right: 10px;
 }
 .btn_buscar{
     border: none;
@@ -47,9 +48,9 @@
 }
 
 .content_btn_form{
+    width: 20% !important;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start !important;
 }
 .btn_crear_actividad{
     border: none;

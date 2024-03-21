@@ -13,18 +13,18 @@ function Navbar() {
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
-  const [error, setError] = useState({name:''});
-  const [activo, setActivo] = useState(true);
+  const [error, setError] = useState({ name: '' });
 
   const onclickFindCountries = () => {
-    if(!error.name){
+    if (error.name !== '' && name.length) {
       dispatch(get_name_countries(name));
       setName('');
-    } 
+      return
+    }
+    setError(validation({ ...error, name:''}));
   }
 
   const onchangeInput = (e) => {
-    setActivo(false)
     setName(e.target.value);
     setError(validation({ ...error, name: e.target.value }));
   }
@@ -39,12 +39,14 @@ function Navbar() {
       <div className='content_input'>
         <div className='content_input_buscar'>
           <input name='name' value={name} type='text' className='input_buscar' placeholder='nombre país' onChange={onchangeInput} />
-          <span className={error.name?'error':"error_a"}>{error.name}</span>
+          <span className={error.name ? 'error' : "error_a"}>{error.name}</span>
         </div>
-        <button className='btn_buscar' onClick={onclickFindCountries} disabled={activo}>Buscar</button>
+        <button className='btn_buscar' onClick={onclickFindCountries}>Buscar</button>
       </div>
       <div className='content_btn_form'>
-        <button className='btn_crear_actividad'>Crear Actividad Turística</button>
+        <NavLink to={`/formulario/${false}`}>
+          <button className='btn_crear_actividad'>Crear Actividad Turística</button>
+        </NavLink>
       </div>
     </div>
   )

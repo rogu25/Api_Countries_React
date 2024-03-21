@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Principal />} />
         <Route exact path='/home' element={<Home />} />
-        <Route exact path='/detalle/:idCountrie' element={<DetalleCountrie />} />
-        <Route exact path='/formulario/:id' element={<FormActividad />} />
+        <Route exact path='/detalle/:idPais' element={<DetalleCountrie />} />
+        <Route exact path='/formulario/:idPais' element={<FormActividad />} />
       </Routes>
     </div>
   );
