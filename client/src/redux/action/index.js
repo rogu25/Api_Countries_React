@@ -81,7 +81,7 @@ export const create_activities = (obj) => async (dispatch) => {
     } catch (error) {
         return dispatch({
             type: CREATE_ACTIVITIES,
-            payload: {mensaje: error.message}
+            payload: error
         });
     }
 }

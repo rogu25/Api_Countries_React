@@ -17,7 +17,7 @@ function CardCountry({ id, imagen, nombre, continente, poblacion, onclickSelectC
       <div className='content_subtitle'>
         <div className='content_label'>
           <div className='lbl_subtitle'>
-            <label>Continente:</label>
+            <span>Continente:</span>
           </div>
           <div className='h5_subtitle'>
             <h5>{continente.replace(/[^a-zA-Z0-9 ]/g, '')}</h5>
@@ -25,7 +25,7 @@ function CardCountry({ id, imagen, nombre, continente, poblacion, onclickSelectC
         </div>
         <div className='content_label'>
           <div className='lbl_subtitle'>
-            <label className='lbl_subtitle'>Población:</label>
+            <span className='lbl_subtitle'>Población:</span>
           </div>
           <div className='h5_subtitle'>
             <h5>{new Intl.NumberFormat('es-PE').format(poblacion)}</h5>

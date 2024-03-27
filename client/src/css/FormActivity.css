@@ -34,6 +34,8 @@
     align-items: center;
 }
 .form_description select{
+    width: 200px;
+    margin-bottom: 20px;
     border: 1px solid rgba(250, 128, 114, 0.29);
     border-radius: 10px;
     background-color: rgba(60, 57, 57, 0.69);
@@ -58,21 +60,28 @@
 .form_description label span {
     color: rgba(211, 29, 29, 0.807);
 }
+.form_description .div_inputs{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .numero {
     width: 50px !important;
     text-align: center;
 }
 
-.content_btn_form{
-    margin-top: 20px;
-    padding: 5px;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+.content_btn_formulario{
+    margin-top: 20px !important;
+    padding: 5px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-evenly !important;
 }
 
-.content_btn_form button{
+.content_btn_formulario button{
     padding: 5px;
     cursor: pointer;
     border: 1px solid rgba(250, 128, 114, 0.29);
@@ -96,7 +105,9 @@
 }
 
 .content_buscar {
+    position: relative;
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
     width: auto !important;
     justify-content: center;
@@ -114,6 +125,15 @@
     color: #ffff;
     font-weight: bold;
     padding: 5px;
+}
+.content_buscar div {
+    margin-top: -20px;
+    text-align: center;
+}
+.content_buscar span {
+    font-size: 0.1;
+    color: rgb(235, 32, 32);
+    text-align: end;
 }
 
 .content_select{
@@ -137,6 +157,15 @@
     font-weight: bold;
     padding-right: 10px;
 }
+.formulario span{
+    font-size: 0.1;
+    color: rgb(235, 32, 32);
+    text-align: center;
+}
+.mensaje{
+    color: #ffffff !important;
+}
+
 .visible{
     display: none;
 }
@@ -147,6 +176,14 @@
     background-color: rgba(60, 57, 57, 0.69);
     color: #ffffff;
     padding: 5px;
+}
+
+/* estilo para los errores--------- */
+
+.errors{
+    position: absolute;
+    bottom: 1px;
+    color: rgb(235, 32, 32);
 }
 
 /* responsivo */

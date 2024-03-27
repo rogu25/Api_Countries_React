@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
 
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", async (req, res) => {
 
   try {
     const { idPais, name, dificultad, duracion, temporada, countries, activities } = req.body;
@@ -30,11 +30,10 @@ router.post("/", async (req, res, next) => {
 
       const repetido = await buscaRepetido.hasActivity(activities);
       
-      if(repetido) return res.json({ mensaje: "Yá existe actividad!!!" });
+      if(repetido) return
 
       await actualizarPais.addActivity(activities);
 
-      return res.json({ mensaje: "Actividad Agregada correctamente...!!!" })
     }
 
     if (countries.length && name && dificultad && duracion && temporada) {
@@ -47,7 +46,7 @@ router.post("/", async (req, res, next) => {
     return res.json({ mensaje: "Error revise...!!!" })
 
   } catch (error) {
-    return next(error)
+    return res.json({error:`${error.original.detail}`})
   }
 
 });

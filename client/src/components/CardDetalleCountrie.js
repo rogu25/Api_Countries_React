@@ -13,7 +13,7 @@ function CardDetalleCountrie({ country }) {
     const dispatch = useDispatch();
     
     const lista_actividades = useSelector((state) => state.activities);
-    const mensaje = useSelector((state) => state.mensaje);
+    const avisos = useSelector((state) => state.avisos);
     const detalle_country = useSelector((state) => state.detalle_country);
     
     const { id, name, continente, capital, subregion, area, poblacion, imagen, Activities } = detalle_country;
@@ -108,6 +108,7 @@ function CardDetalleCountrie({ country }) {
                         <h3 className='t_activities'>Lista de Actividades</h3>
                         <select className='lista_activity'
                             onChange={onclickSelectActivity}
+                            id='lista_activity'
                         >
                             <option>actividades...</option>
                             {
@@ -130,7 +131,8 @@ function CardDetalleCountrie({ country }) {
                                 }) : <p>Seleccione activiades</p>
                             }
                         </div>
-                        {mensaje && !actividades.length && <span>{mensaje}</span>}
+                        {avisos.mensaje && !actividades.length && <span>{avisos.mensaje}</span>}
+                        {avisos.error && !actividades.length && <span>{avisos.error}</span>}
                         <div className='content_botones_lista'>
                             <button
                                 className='btn_detalle'

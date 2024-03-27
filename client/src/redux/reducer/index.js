@@ -3,6 +3,7 @@ import { ALL_COUNTRIES, FIND_NAME_COUNTRIES, FIND_ID_COUNTRY, GET_ALL_ACTIVITY, 
 const initialState = {
     countries: [],
     mensaje: "",
+    avisos:{},
     detalle_country: {},
     activities: []
 };
@@ -37,7 +38,9 @@ const rootReducer = (state = initialState, action) => {
         case CREATE_ACTIVITIES:
             return {
                 ...state,
-                mensaje: action.payload.mensaje
+                avisos: action.payload.mensaje ? {
+                    mensaje: action.payload.mensaje
+                } : {error: action.payload.error}
             }
 
         default:
